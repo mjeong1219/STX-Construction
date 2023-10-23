@@ -1,4 +1,5 @@
 @charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700&family=Roboto&family=Signika&display=swap');
 
 *{
     padding: 0;
@@ -6,17 +7,896 @@
     box-sizing: border-box;
 }
 
-ul{
+a{
+    color: #000;
+    text-decoration: none;
+}
+
+ul, li{
     list-style: none;
 }
 
-a{
-    text-decoration: none;
-    color: inherit;
+img{
+    border: 0;
+    vertical-align: middle;
 }
 
-#wrap{
-    width: 100vw;
-    height: 100vh;
+html{
+    font-size: 16px;
+}
+
+body{
+    font-family: "Noto Sans KR", sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    color: #444;
+    line-height: 1.14;
+    letter-spacing: 0;
+    /* 자간 설정 */
+    word-break: break-all;
+    /* 줄바꿈 */
+}
+
+/* 공통클래스 */
+
+.container{
+    position: relative;
+    display: block;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.clearfix::after{
+    /* 하단이 위로 침범하지 않게 하기위해 설정. */
+    content: "";
+    position: relative;
+    display: block;
+    width: 100%;
+    clear: both;
+}
+
+/* 안내창 */
+body.active{
+    overflow-y: auto;
+}
+
+.modal-wrap{
+    font-family: "Noto Sans KR", Helvetica, "맑은 고딕", "malgun gothic",
+    "Apple SD Gothic Neo", sans-serif;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(0, 0, 0, 0.5);
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-main{
+    position: relative;
+    width: 600px;
+    height: 500px;
+    border-radius: 50px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    line-height: 50px;
+}
+
+.modal-wrap .modal-logo{
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 130px;
+    height: 130px;
+    border-radius: 100px;
+    border: #fff solid 5px;
+    top: 0;
+    left: 300px;
+    background: url("../images/character_tchumong.005d7ffe.jpg") no-repeat center;
+    background-size: contain;
+}
+
+.modal-nonotic{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.modal-wrap .modal-nonotic strong{
+    color: red;
+    background: linear-gradient(to top, yellow 50%, transparent 50%);
+}
+
+.modal-wrap .modal-nonotic span{
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.modal-wrap .modal-close{
+    font-weight: 500;
+    width: 300px;
+    height: 50px;
+    position: absolute;
+    bottom: 0;
+    font-size: 18px;
+}
+
+.modal-close i{
+    font-style: normal;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+
+/* 레이아웃 */
+.wrap{
+    position: relative;
+    display: block;
+}
+
+/* 헤더 */
+.header{
+    width: 100%;
+    height: 80px;
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    overflow: hidden;
+}
+
+.header:hover{
+    height: calc(80px + 330px);
+}
+
+.header::before{
+    display: block;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background-color: #fff;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.header::after{
+    display: block;
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 81px;
+    width: 100%;
+    height: 330px;
+    background-color: rgb(0, 0, 0, 0.5);
+}
+
+.header-inner{
+    position: relative;
+    display: block;
+    width: 100%;
+    max-width: 1800px;
+    margin: 0 auto;
+    height: 80px;
+    z-index: 1;
+}
+
+.logo{
+    position: absolute;
+    left: 0;
+    top: 20px;
+}
+
+/* 헤더 메뉴 */
+nav{
+    position: relative;
+    display: block;
+    width: calc(178px *6);
+    margin: 0 auto;
+}
+
+.gnb{
+    position: relative;
+    display: block;
+    width: calc(178px * 6);
+    overflow: hidden;
+}
+
+.gnb > li{ 
+    position: relative;
+    display: block;
+    width: 178px;
+    float: left;
+}
+
+.gnb > li > a{
+    position: relative;
+    display: block;
+    height: 80px;
+    padding: 26px 0;
+    font-size: 19px;
+    font-weight: 500;
+}
+
+.gnb a:hover{
+    color: #ed1c24;
+}
+
+.gnb > li:hover > a{
+    color: #ed1c24;
+}
+
+.depth2{
+    position: relative;
+    display: block;
+    padding: 40px 0;
+}
+
+.depth2 > li{
+    position: relative;
+    display: block;
+}
+
+.depth2 > li > a{
+    position: relative;
+    display: block;
+    color: #fff;
+    font-size: 15px;
+    line-height: 1.92;
+    /* 숫자만 적으면 font size의 배수로 인식함. (15 * 1.92) */
+}
+
+/* 언어설정 */
+.lang{
+    position: absolute;
+    top: 35px;
+    right: 0;
+}
+
+.lang-list{
+    position: relative;
+    display: block;
+}
+
+.lang-list li{
+    position: relative;
+    display: block;
+    float: left;
+    padding: 0 10px;
+}
+
+.lang-list li a{
+    position: relative;
+    display: block;
+    text-transform: uppercase;
+    /* 소문자를 대문자로 바꿈. */
+    font-size: 15px;
+    color: #888;
+    font-weight: 700;
+}
+
+.lang-list li a.lang-active{
+    color: #000;
+}
+
+.lang-list li::after{
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 4px;
+    width: 1px;
+    height: 11px;
+    background-color: #999;
+}
+
+.lang-list li:last-child::after{
+    content: none;
+}
+
+/* 비주얼 */
+
+.visual{
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 910px;
+    background: url("../images/bg1.png") no-repeat center fixed;
+    background-size: cover;
+    margin-top: 80px;
+    background-color: violet;
+}
+
+.visual-inner{
+    position: relative;
+    display: block;
+    height: 100%;
+    padding-top: 1px;
+}
+
+.visual-slogan{
+    position: relative;
+    display: block;
+    font-size: 70px;
+    color: #fff;
+    font-weight: 500;
+    margin-top: 245px;
+}
+
+.visual-slogan::before{
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: -45px;
+    width: 60px;
+    height: 5px;
+    background-color: #ed1c24;
+}
+
+.visual-txt{
+    position: relative;
+    display: block;
+    font-size: 21px;
+    color: #fff;
+    margin-top: 30px;
+}
+
+.visual-bt{
+    position: absolute;
+    left: calc(50% - 33px / 2);
+    bottom: 40px;
+    display: block;
+    width: 33px;
+    height: 33px;
+    background: url(../images/business_icon.png) no-repeat;
+    background-position: -122px 0;
+    border: 0;
+    font-size: 0;
+}
+
+/* 비지니스 */
+
+.business{
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 100px 0;
+    background-color: #f8f8f8;
+}
+
+.business-inner{
+    position: relative;
+    display: block;
+}
+
+.business-top{
+    position: relative;
+    display: block;
+    margin-bottom: 70px;
+}
+
+.business-title{
+    position: relative;
+    display: block;
+    font-size: 44px;
+    font-weight: 600;
+    text-align: center;
+    padding-bottom: 31px;
+    color: #111;
+}
+
+.business-title::after{
+    content: "";
+    position: absolute;
+    left: calc(50% - 37px / 2);
+    bottom: 0;
+    display: block;
+    width: 37px;
+    height: 4px;
+    background-color: #ed1c24;
+}
+
+.business-desc{
+    position: relative;
+    display: block;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.business-bottom{
+    position: relative;
+    display: block;
+}
+
+.business-list{
+    position: relative;
+    display: block;
+}
+
+.business-list li{
+    position: relative;
+    display: block;
+    width: calc(100% / 5);
+    height: 420px;
+    float: left;
+    background: url("../images/business_img.png") no-repeat;
+    background-position: 0 0;
+}
+
+.business-list li:nth-child(1){
+    background-position: calc(240px * 0) 0px;
+    /* 하나가 240px. 1씩 곱할 수록 사진이 옮겨짐.
+    이건 0을 곱했기 때문에 시작점이 0. */
+}
+
+.business-list li:nth-child(2){
+    background-position: calc(240px * -1) 0px;
+}
+
+.business-list li:nth-child(3){
+    background-position: calc(240px * -2) 0px;
+}
+
+.business-list li:nth-child(4){
+    background-position: calc(240px * -3) 0px;
+}
+
+.business-list li:nth-child(5){
+    background-position: calc(240px * -4) 0px;
+}
+
+.business-list li a{
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 100px 0;
+    text-align: center;
+    color: #fff;
+    font-size: 24px;
+    background-color: rgba(244, 128, 37, 0);
+    transition: background 0.5s
+}
+
+.business-list li a:hover{
+    background-color: rgba(244, 128, 37, 1);
+}
+
+.business-list li a::after{
+    content: "";
+    position: absolute;
+    left: calc(50% - 130px / 2);
+    bottom: 94px;
+    display: block;
+    width: 130px;
+    height: 112px;
+    visibility: hidden;
+    /*  */
+    opacity: 0;
+    background: url("../images/business_icon.png") no-repeat;
+    background-position: 0px 0px;
+    transition: opacity 0.5s, visibility 0.5s;
+}
+
+.business-list li a:hover::after{
+    visibility: visible;
+    opacity: 1;
+    /* opacity랑 다른점? */
+}
+
+.business-list li:nth-child(1) a::after{
+    background-position: -165px 0;
+    /* x값, y값. */
+}
+
+.business-list li:nth-child(2) a::after{
+    background-position: -298px 0;
+}
+
+.business-list li:nth-child(3) a::after{
+    background-position: 0 -116px;
+}
+
+.business-list li:nth-child(4) a::after{
+    background-position: -140px -122px;
+}
+
+.business-list li:nth-child(5) a::after{
+    background-position: -268px -122px;
+}
+
+
+/* 뉴스 */
+
+.news{
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 55px 0;
+    background: #ed1c24;
+}
+
+.news-bg{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    background-color: #58595b;
+}
+
+.news-inner{
+    position: relative;
+    display: block;
+}
+
+.news-wrap{
+    position: relative;
+    display: block;
+    width: calc(50% - 95px);
+}
+
+.news-inner .news-wrap:first-child{
+    float: left;
+}
+
+.news-inner .news-wrap:last-child{
+    float: right;
+}
+
+.news-wrap h3{
+    position: relative;
+    display: block;
+    font-size: 32px;
+    color: #fff;
+    font-weight: 300;
+    margin-bottom: 45px;
+}
+
+.news-content{
+    position: relative;
+    display: block;
+}
+
+.news-list li{
+    position: relative;
+    display: block;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 25px 0;
+}
+
+.news-list li:last-child{
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.news-list li a{
+    position: relative;
+    display: block;
+    font-size: 16px;
+    color: #fff;
+}
+
+.news-list li a .news-txt{
+    position: relative;
+    display: block;
+    /* 말줄임 '...' 표시하는 법 (너비가 꼭 있어야 함) */
+    width: 85%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    /* 말줄임 표시 끝 */
+}
+
+.news-list li a::after{
+    content: "";
+    position: absolute;
+    right: 29px;
+    top: 0;
+    width: 48px;
+    height: 23px;
+    background: url("../images/business_icon.png") no-repeat;
+    background-position: 0px -49px;
+}
+
+/* 고객센터 */
+
+.cs{
+    position: relative;
+    display: block;
+    padding: 60px 0;
+    background-color: #f8f8f8f8;
+}
+
+.cs-inner{
+    position: relative;
+    display: block;
+    background-color: #fff;
+}
+
+.cs-link{
+    position: relative;
+    display: block;
+    width: calc(50% - 1px);
+    height: 200px;
+    background-color: #fff;
+    padding: 50px 60px;
+}
+
+.cs-inner > .cs-link:first-child{
+    float: left;
+    background: url("../images/faq.png") no-repeat;
+    background-position: calc(100% - 40px);
+}
+
+.cs-inner > .cs-link:last-child{
+    float: right;
+    background: url("../images/service.png") no-repeat;
+    background-position: calc(100% - 50px);
+}
+
+.cs-link h3{
+    position: relative;
+    display: block;
+    color: #000;
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+/* 회사소개 */
+.about{
+    position: relative;
+    display: block;
+    padding: 100px 0;
+    background-color: #fff;
+}
+
+.about-inner{
+    position: relative;
+    display: block;
+}
+
+.about-top{
+    position: relative;
+    display: block;
+    background: url("../images/bg2.png") no-repeat;
+    background-position: 100% 50%;
+    margin-bottom: 80px;
+}
+
+.about-top > h2{
+    position: relative;
+    display: block;
+    font-size: 44px;
+    color: #111;
+    font-weight: 600;
+    padding-top: 35px;
+    margin-bottom: 55px;
+    text-transform: uppercase;
+}
+
+.about-top > p{
+    position: relative;
+    display: block;
+    font-size: 15px;
+    padding-left: 100px;
+    padding-bottom: 70px;
+}
+
+.about-top > p > b{
+    position: relative;
+    display: block;
+    font-size: 21px;
+    font-weight: 500;
+    color: #111;
+    padding-bottom: 25px;
+}
+
+.about-top > p::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 37px;
+    height: 5px;
+    background-color: #ed1c24;
+    top: 0;
+    left: 0;
+}
+
+.about-bottom{
+    position: relative;
+    display: block;
+    text-align: center;
+}
+
+.about-list{
+    position: relative;
+    display: inline-block;
+}
+
+.about-list > li{
+    position: relative;
+    display: block;
+    float: left;
+}
+
+.about-list > li > a{
+    position: relative;
+    display: block;
+    font-size: 22px;
+    color: #111;
+    font-weight: 500;
+}
+
+.about-list > li > a::before{
+    content: "";
+    position: relative;
+    display: block;
+    width: 110px;
+    height: 108px;
+    background: url("../images/about_icon.png") no-repeat;
+    margin-bottom: 25px;
+}
+
+.about-list > li:nth-child(2){
+    margin: 0px 200px;
+}
+
+.about-list > li:nth-child(1) > a::before{
+    background-position: 0px 0px;
+}
+
+.about-list > li:nth-child(2) > a::before{
+    background-position: -110px 0px;
+}
+
+.about-list > li:nth-child(3) > a::before{
+    background-position: -230px 0px;
+}
+
+/* 푸터 */
+
+.footer{
+    position: relative;
+    display: block;
+    padding: 50px 0;
+    background-color: #4e4e4e;
+}
+
+.footer-inner{
+    position: relative;
+    display: block;
+}
+
+.footer-logo{
+    position: relative;
+    display: block;
+    float: left;
+    margin-right: 130px;
+}
+
+.footer-info{
+    position: relative;
+    display: block;
+    float: left;
+}
+
+.footer-list{
+    position: relative;
+    display: block;
+}
+
+.footer-list > li{
+    position: relative;
+    display: block;
+    font-size: 13px;
+    color: #c3c3ce;
+    margin-bottom: 5px;
+}
+
+.footer-list > li > address{
+    position: relative;
+    display: block;
+    font-style: normal;
+    /* address 하면 기울어지기 때문에 스타일 normal로 똑바로 세움. */
+}
+
+.footer-list > li > i{
+    position: relative;
+    display: inline-block;
+}
+
+/* 탑 버튼 */
+.top-button{
+    position: fixed;
+    right: 30px;
+    bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    /* gap - 간격 띄우기 */
+    justify-items: center;
+    z-index: 999;;
+}
+
+.top-button .chat_btn span{
+    position: absolute;
+    display: none;
+    top: 30px;
+    right: 80px;
+    width: 160px;
+    background-color: #fff;
+    border-radius: 23px;
+    box-shadow: 0px 3px 7px 0 rgb(0, 0, 0, 0.5);
+    font-weight: 700;
+    text-align: center;
+    line-height: 45px;
+}
+
+.top-button .chat_btn:hover span{
+    display: block;
+}
+
+.top-button .chat_btn{
+    -webkit-animation: updown 1.5s infinite ease-in-out;
+    /* 다른 브라우저에서도 작동 될 수 있게 하기 위해 -webkit을 사용. */
+    animation: updown 1.5s infinite ease-in-out;
+}
+
+.top-button .shop-btn{
+    position: relative;
+    display: block;
+    width: 55px;
+    line-height: 55px;
+    background-color: #fff;
+    border-radius: 50%;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    box-shadow: 0px 3px 8px 1px rgba(0, 0, 0, 0.06),
+    inset 0px 5px 10px 0 rgba(255, 255, 255, 0.14);
+    /* inset - 이너 그림자 */
+    letter-spacing: 0.5px;
+    /* letter-spacing */
+}
+
+.top-button .top-btn{
+    background-color: #ed1c24;
+    width: 55px;
+    text-align: center;
+    line-height: 55px;
+    border-radius: 50%;
+    box-shadow: 0px 3px 8px 1px rgba(0, 0, 0, 0.06),
+    inset 0px 5px 10px 0 rgba(255, 255, 255, 0.14);
+}
+
+.top-button .top-btn img{
+    transform: rotate(180deg);
+}
+
+.top-button .top-btn img.up{
+    transform: rotate(0deg);
+    /* 이미지의 위아래를 전환시키기 위해 적용. */
+}
+
+@-webkit-keyframes updown{
+    0%{
+        transform: translateY(0);
+    }
+    50%{
+        transform: translateY(-10%);
+    }
+    100%{
+        transform: translateY(0);
+    }
 }
 
